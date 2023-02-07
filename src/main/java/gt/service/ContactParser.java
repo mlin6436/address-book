@@ -1,5 +1,7 @@
-package gt;
+package gt.service;
 
+import gt.models.Contact;
+import gt.models.Gender;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;

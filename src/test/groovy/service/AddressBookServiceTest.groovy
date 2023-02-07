@@ -1,5 +1,8 @@
-package gt
+package service
 
+import gt.service.AddressBookDao
+import gt.service.AddressBookService
+import gt.service.ContactParser
 import spock.lang.Specification
 
 class AddressBookServiceTest extends Specification{

@@ -1,5 +1,7 @@
-package gt
+package service
 
+import gt.models.Gender
+import gt.service.ContactParser
 import spock.lang.Specification
 
 class ContactParserTest extends Specification {

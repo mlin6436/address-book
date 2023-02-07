@@ -1,4 +1,4 @@
-package gt;
+package gt.models;
 
 import org.joda.time.LocalDate;
 

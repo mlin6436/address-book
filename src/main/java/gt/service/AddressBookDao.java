@@ -1,4 +1,6 @@
-package gt;
+package gt.service;
+
+import gt.models.Contact;
 
 import java.net.URI;
 import java.nio.file.Files;
