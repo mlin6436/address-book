@@ -8,7 +8,7 @@ public class ContactParser {
 
     private final DateTimeFormatter dateTimeFormat = DateTimeFormat.forPattern("dd/MM/yy");
 
-    public Contact parse(String input) throws Exception {
+    public Contact parse(String input) {
         try {
             String[] tokens = input.split(",");
             String name = tokens[0];
