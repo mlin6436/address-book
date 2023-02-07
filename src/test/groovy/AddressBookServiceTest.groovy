@@ -31,4 +31,12 @@ class AddressBookServiceTest extends Specification{
         then:
         result == -2862
     }
+
+    def "should return min long if date of birth info is not found"() {
+        when:
+        def result = service.getDaysOlder("John Robinson", "Bill McKnight")
+
+        then:
+        result == Long.MIN_VALUE
+    }
 }

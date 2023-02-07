@@ -25,10 +25,14 @@ public class AddressBookService {
     }
 
     public long getDaysOlder(String name1, String name2) {
+        long result = Long.MIN_VALUE;
         Optional<LocalDate> dob1 = contacts.stream()
             .filter(contact -> contact.name().equals(name1)).map(Contact::dateOfBirth).findFirst();
         Optional<LocalDate> dob2 = contacts.stream()
             .filter(contact -> contact.name().equals(name2)).map(Contact::dateOfBirth).findFirst();
-        return Days.daysBetween(dob1.get(), dob2.get()).getDays();
+        if (dob1.isPresent() && dob2.isPresent()) {
+            result = Days.daysBetween(dob1.get(), dob2.get()).getDays();
+        }
+        return result;
     }
 }
