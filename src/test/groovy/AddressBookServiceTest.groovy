@@ -16,4 +16,17 @@ class AddressBookServiceTest extends Specification{
         then:
         result == 3
     }
+
+    def "should return oldest person"() {
+        setup:
+        def parser = new ContactParser()
+        def dao = new AddressBookDao(parser)
+        def service = new AddressBookService(dao)
+
+        when:
+        def result = service.getOldestPerson()
+
+        then:
+        result == Optional.of("Wes Jackson")
+    }
 }
