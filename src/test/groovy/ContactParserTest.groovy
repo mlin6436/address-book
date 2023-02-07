@@ -16,7 +16,7 @@ class ContactParserTest extends Specification {
         result.name == "Bill McKnight"
         result.gender == Gender.Male
         result.dateOfBirth.year == 1977
-        result.dateOfBirth.monthValue == 3
+        result.dateOfBirth.monthOfYear == 3
         result.dateOfBirth.dayOfMonth == 16
     }
 
