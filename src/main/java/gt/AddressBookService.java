@@ -1,5 +1,8 @@
 package gt;
 
+import org.joda.time.Days;
+import org.joda.time.LocalDate;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -19,5 +22,13 @@ public class AddressBookService {
 
     public Optional<String> getOldestPerson() {
         return contacts.stream().sorted(Comparator.comparing(Contact::dateOfBirth)).map(Contact::name).findFirst();
+    }
+
+    public long getDaysOlder() {
+        Optional<LocalDate> paulDoB = contacts.stream()
+            .filter(contact -> contact.name().equals("Paul Robinson")).map(Contact::dateOfBirth).findFirst();
+        Optional<LocalDate> billDoB = contacts.stream()
+            .filter(contact -> contact.name().equals("Bill McKnight")).map(Contact::dateOfBirth).findFirst();
+        return Days.daysBetween(paulDoB.get(), billDoB.get()).getDays();
     }
 }

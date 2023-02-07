@@ -29,4 +29,17 @@ class AddressBookServiceTest extends Specification{
         then:
         result == Optional.of("Wes Jackson")
     }
+
+    def "should return days older difference between Bill and Paul"() {
+        setup:
+        def parser = new ContactParser()
+        def dao = new AddressBookDao(parser)
+        def service = new AddressBookService(dao)
+
+        when:
+        def result = service.getDaysOlder()
+
+        then:
+        result == -2862
+    }
 }
