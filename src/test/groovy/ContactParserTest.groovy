@@ -19,4 +19,16 @@ class ContactParserTest extends Specification {
         result.dateOfBirth.monthValue == 3
         result.dateOfBirth.dayOfMonth == 16
     }
+
+    def "should throw exception when parse failed"() {
+        setup:
+        def input = "Bill McKnight, Third, 16/03/77"
+        def parser = new ContactParser()
+
+        when:
+        parser.parse(input)
+
+        then:
+        thrown(Exception)
+    }
 }
