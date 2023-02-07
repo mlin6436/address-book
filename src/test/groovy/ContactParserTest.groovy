@@ -29,6 +29,6 @@ class ContactParserTest extends Specification {
         parser.parse(input)
 
         then:
-        thrown(Exception)
+        thrown(RuntimeException)
     }
 }

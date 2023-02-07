@@ -16,7 +16,7 @@ public class ContactParser {
             LocalDate dateOfBirth = dateTimeFormat.parseLocalDate(tokens[2].trim());
             return new Contact(name, gender, dateOfBirth);
         } catch (Exception e) {
-            throw new Exception("unable to parse input + " + e.getMessage());
+            throw new RuntimeException("unable to parse input + " + e.getMessage());
         }
     }
 }
