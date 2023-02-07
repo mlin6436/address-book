@@ -17,17 +17,17 @@ class AddressBookDaoTest extends Specification {
         result.size() == 5
     }
 
-    def "should throw exception when failed to retrieve contacts"() {
+    def "should return empty list when failed to retrieve contacts"() {
         setup:
         def filename = "AddressBook"
         def parser = Mock(ContactParser)
         def dao = new AddressBookDao(parser)
 
         when:
-        dao.getContacts(filename)
+        def result = dao.getContacts(filename)
 
         then:
         1 * parser.parse(_) >> { throw new RuntimeException() }
-        thrown(Exception)
+        result.size() == 0
     }
 }
