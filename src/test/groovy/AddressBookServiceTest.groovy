@@ -26,7 +26,7 @@ class AddressBookServiceTest extends Specification{
 
     def "should return days older difference between Bill and Paul"() {
         when:
-        def result = service.getDaysOlder()
+        def result = service.getDaysOlder("Paul Robinson", "Bill McKnight")
 
         then:
         result == -2862

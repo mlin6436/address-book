@@ -24,11 +24,11 @@ public class AddressBookService {
         return contacts.stream().sorted(Comparator.comparing(Contact::dateOfBirth)).map(Contact::name).findFirst();
     }
 
-    public long getDaysOlder() {
-        Optional<LocalDate> paulDoB = contacts.stream()
-            .filter(contact -> contact.name().equals("Paul Robinson")).map(Contact::dateOfBirth).findFirst();
-        Optional<LocalDate> billDoB = contacts.stream()
-            .filter(contact -> contact.name().equals("Bill McKnight")).map(Contact::dateOfBirth).findFirst();
-        return Days.daysBetween(paulDoB.get(), billDoB.get()).getDays();
+    public long getDaysOlder(String name1, String name2) {
+        Optional<LocalDate> dob1 = contacts.stream()
+            .filter(contact -> contact.name().equals(name1)).map(Contact::dateOfBirth).findFirst();
+        Optional<LocalDate> dob2 = contacts.stream()
+            .filter(contact -> contact.name().equals(name2)).map(Contact::dateOfBirth).findFirst();
+        return Days.daysBetween(dob1.get(), dob2.get()).getDays();
     }
 }
